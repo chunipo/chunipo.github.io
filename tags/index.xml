@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Riven‘s Blog</title>
+    <link>https://chunipo.github.io/tags/</link>
+    <description>Recent content in Tags on Riven‘s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-FR</language>
+    <copyright>All rights reserved</copyright>
+    <lastBuildDate>Mon, 03 Feb 2014 22:47:19 +0100</lastBuildDate>
+    
+	<atom:link href="https://chunipo.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog</title>
+      <link>https://chunipo.github.io/tags/blog/</link>
+      <pubDate>Mon, 03 Feb 2014 22:47:19 +0100</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/blog/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cest Dit</title>
+      <link>https://chunipo.github.io/tags/cest-dit/</link>
+      <pubDate>Fri, 02 Nov 2007 18:14:00 +0100</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/cest-dit/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cest Lu</title>
+      <link>https://chunipo.github.io/tags/cest-lu/</link>
+      <pubDate>Fri, 30 May 2008 12:00:00 +0200</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/cest-lu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devops</title>
+      <link>https://chunipo.github.io/tags/devops/</link>
+      <pubDate>Fri, 21 Feb 2014 19:11:36 +0100</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/devops/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Devoxx</title>
+      <link>https://chunipo.github.io/tags/devoxx/</link>
+      <pubDate>Fri, 18 Apr 2014 23:00:00 +0200</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/devoxx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Docker</title>
+      <link>https://chunipo.github.io/tags/docker/</link>
+      <pubDate>Fri, 14 Feb 2014 09:13:00 +0100</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/docker/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Dotscale</title>
+      <link>https://chunipo.github.io/tags/dotscale/</link>
+      <pubDate>Fri, 11 Jul 2014 10:54:24 +0200</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/dotscale/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Event</title>
+      <link>https://chunipo.github.io/tags/event/</link>
+      <pubDate>Fri, 13 Mar 2015 16:10:08 +0100</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/event/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Golang</title>
+      <link>https://chunipo.github.io/tags/golang/</link>
+      <pubDate>Wed, 05 Feb 2014 23:35:08 +0100</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/golang/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hackathon</title>
+      <link>https://chunipo.github.io/tags/hackathon/</link>
+      <pubDate>Fri, 13 Mar 2015 16:10:08 +0100</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/hackathon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Iot</title>
+      <link>https://chunipo.github.io/tags/iot/</link>
+      <pubDate>Thu, 25 Sep 2014 14:41:06 +0200</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/iot/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Meetup</title>
+      <link>https://chunipo.github.io/tags/meetup/</link>
+      <pubDate>Tue, 15 Apr 2014 23:58:00 +0200</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/meetup/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Serf</title>
+      <link>https://chunipo.github.io/tags/serf/</link>
+      <pubDate>Sat, 08 Feb 2014 21:48:08 +0100</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/serf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sketchnote</title>
+      <link>https://chunipo.github.io/tags/sketchnote/</link>
+      <pubDate>Thu, 25 Sep 2014 14:41:06 +0200</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/sketchnote/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Socgen</title>
+      <link>https://chunipo.github.io/tags/socgen/</link>
+      <pubDate>Fri, 13 Mar 2015 16:10:08 +0100</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/socgen/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>https://chunipo.github.io/tags/tools/</link>
+      <pubDate>Sat, 17 May 2014 18:03:35 +0200</pubDate>
+      
+      <guid>https://chunipo.github.io/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

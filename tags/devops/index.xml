@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Devops on Riven‘s Blog</title>
+    <link>https://chunipo.github.io/tags/devops/</link>
+    <description>Recent content in Devops on Riven‘s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>fr-FR</language>
+    <copyright>All rights reserved</copyright>
+    <lastBuildDate>Fri, 21 Feb 2014 19:11:36 +0100</lastBuildDate>
+    
+	<atom:link href="https://chunipo.github.io/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>DevO(xx|ps)</title>
+      <link>https://chunipo.github.io/devoxxps/</link>
+      <pubDate>Fri, 21 Feb 2014 19:11:36 +0100</pubDate>
+      
+      <guid>https://chunipo.github.io/devoxxps/</guid>
+      <description>En attendant une date pour le Devops 2014, on se voit au DevOxx Paris 2014 !
+Le programme est disponible.
+Il y a du Docker et du Golang dans l&amp;rsquo;air cette année&amp;hellip;</description>
+    </item>
+    
+  </channel>
+</rss>
