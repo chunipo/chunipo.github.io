@@ -8,6 +8,11 @@
   </url>
   
   <url>
+    <loc>https://chunipo.github.io/octometre/</loc>
+    <lastmod>2016-11-23T12:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://chunipo.github.io/security/asset-security/</loc>
     <lastmod>2015-07-18T14:15:00+02:00</lastmod>
   </url>
@@ -15,16 +20,6 @@
   <url>
     <loc>https://chunipo.github.io/about/</loc>
     <lastmod>2015-04-14T22:17:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chunipo.github.io/octometre/</loc>
-    <lastmod>2006-11-23T12:00:00+01:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://chunipo.github.io/octometre/</loc>
-    <lastmod>2006-11-23T12:00:00+01:00</lastmod>
   </url>
   
   <url>
@@ -39,13 +34,13 @@
   
   <url>
     <loc>https://chunipo.github.io/tags/cest-dit/</loc>
-    <lastmod>2006-11-23T12:00:00+01:00</lastmod>
+    <lastmod>2016-11-23T12:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://chunipo.github.io/post/</loc>
-    <lastmod>2006-11-23T12:00:00+01:00</lastmod>
+    <lastmod>2016-11-23T12:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -63,7 +58,7 @@
   
   <url>
     <loc>https://chunipo.github.io/tags/</loc>
-    <lastmod>2006-11-23T12:00:00+01:00</lastmod>
+    <lastmod>2016-11-23T12:00:00+01:00</lastmod>
     <priority>0</priority>
   </url>
   
