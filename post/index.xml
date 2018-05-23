@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Post on Riven‘s Blog</title>
+    <title>Post on Riven&#39;s Blog</title>
     <link>https://chunipo.github.io/post/</link>
-    <description>Recent content in Post on Riven‘s Blog</description>
+    <description>Recent content in Post on Riven&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-FR</language>
-    <copyright>All rights reserved</copyright>
+    <copyright>我们真正迷恋的不是某个东西，而是那个东西所代表的意义和感受，它承载了回忆和联想</copyright>
     <lastBuildDate>Wed, 23 Nov 2016 12:00:00 +0100</lastBuildDate>
     
 	<atom:link href="https://chunipo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
@@ -14,10 +14,10 @@
     
     <item>
       <title>使用hexo搭建github的个人博客</title>
-      <link>https://chunipo.github.io/octometre/</link>
+      <link>https://chunipo.github.io/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</link>
       <pubDate>Wed, 23 Nov 2016 12:00:00 +0100</pubDate>
       
-      <guid>https://chunipo.github.io/octometre/</guid>
+      <guid>https://chunipo.github.io/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</guid>
       <description>Git安装  mac安装Git brew install git 安装Node.js brew install node  配置SSH keys  生成SSH key ssh-keygen -t rsa -C &amp;quot;****@xx.com&amp;quot; #注册github的邮箱地址 输入密码验证  添加SSH到Github 找到并打开.ssh\id_rsa.pub文件，需要先设置显示隐藏文件 登陆github.Settings—&amp;gt;SSH keys—&amp;gt; add SSH keys 把之前密钥复制到key文本框中    测试是否成功  ssh -T git@github.com 设置用户信息 git config --global user.name &amp;quot;用户名&amp;quot; git config --global user.email &amp;quot;邮箱&amp;quot;  hexo安装设置  安装hexo npm install hexo -g 安装成功后  hexo init &amp;quot;文件夹路径&amp;quot; hexo g #generate 生成静态网页 hexo s #运行本地服务 控制台输出：Hexo is running at http://localhost:4000/.</description>
     </item>
     
