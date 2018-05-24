@@ -7,10 +7,20 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>fr-FR</language>
     <copyright>我们真正迷恋的不是某个东西，而是那个东西所代表的意义和感受，它承载了回忆和联想</copyright>
-    <lastBuildDate>Wed, 23 Nov 2016 12:00:00 +0100</lastBuildDate>
+    <lastBuildDate>Sun, 18 Dec 2016 22:19:00 +0200</lastBuildDate>
     
 	<atom:link href="https://chunipo.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>用hugo在github上搭建个人博客</title>
+      <link>https://chunipo.github.io/%E7%94%A8hugo%E5%9C%A8github%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Sun, 18 Dec 2016 22:19:00 +0200</pubDate>
+      
+      <guid>https://chunipo.github.io/%E7%94%A8hugo%E5%9C%A8github%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>&lt;blockquote&gt;
+&lt;p&gt;Do what you should do, what can result in a second.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>使用hexo搭建github的个人博客</title>
@@ -21,16 +31,6 @@
       <description>&lt;blockquote&gt;
 &lt;p&gt;How much life time calculation, the value of life by contribution calculation.&lt;br /&gt;
 &lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>用hugo在github上搭建个人博客</title>
-      <link>https://chunipo.github.io/%E7%94%A8hugo%E5%9C%A8github%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
-      <pubDate>Mon, 18 Apr 2016 22:19:00 +0200</pubDate>
-      
-      <guid>https://chunipo.github.io/%E7%94%A8hugo%E5%9C%A8github%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
-      <description>&lt;blockquote&gt;
-&lt;p&gt;Do what you should do, what can result in a second.&lt;/p&gt;</description>
     </item>
     
   </channel>

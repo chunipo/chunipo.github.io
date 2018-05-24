@@ -31,7 +31,7 @@
     
     <meta property="og:description" content="" />
   	<meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2016-04-18T22:19:00&#43;02:00" />
+    <meta property="article:published_time" content="2016-12-18T22:19:00&#43;02:00" />
 
     
     
@@ -105,15 +105,15 @@
     },
     "headline": 用hugo在github上搭建个人博客,
     "name": 用hugo在github上搭建个人博客,
-    "wordCount": 12,
+    "wordCount": 205,
     "timeRequired": "PT1M",
     "inLanguage": {
       "@type": "Language",
       "alternateName": en
     },
     "url": https://chunipo.github.io/%E7%94%A8hugo%E5%9C%A8github%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/,
-    "datePublished": 2016-04-18T22:19Z,
-    "dateModified": 2016-04-18T22:19Z,
+    "datePublished": 2016-12-18T22:19Z,
+    "dateModified": 2016-12-18T22:19Z,
     
     "image": {
         "@type": "ImageObject",
@@ -245,8 +245,8 @@
 
         <section class="post-meta">
         
-          <time class="post-date" datetime="2016-04-18T22:19:00&#43;02:00">
-            Apr 18, 2016
+          <time class="post-date" datetime="2016-12-18T22:19:00&#43;02:00">
+            Dec 18, 2016
           </time>
         
          
@@ -258,7 +258,106 @@
 <p>Do what you should do, what can result in a second.</p>
 </blockquote>
 
-<p>用hexo安装博客后，发现hugo的主题以及性能更加出色，现在想尝试用hugo来搭建自己喜欢而又实用的博客。</p>
+<p>用hexo安装博客后，发现hugo的主题以及性能更加出色，并且类型上更加多元化，于是想尝试用hugo来搭建自己喜欢而又实用的博客。详情可以去<a href="http://gohugo.io/getting-started/">Hugo官网</a>查看.</p>
+
+<h2 id="第1步-安装hugo">第1步：安装Hugo</h2>
+
+<p><code>brew install hugo</code></p>
+
+<p>要验证您的新安装：</p>
+
+<p><code>hugo version</code></p>
+
+<h2 id="第2步-创建一个新网站">第2步：创建一个新网站</h2>
+
+<p>在你要存放网站的地方，创建文件夹名为 xxx 的网站:</p>
+
+<p><code>hugo new site xxx</code></p>
+
+<p>创建的站点文件目录说明：</p>
+
+<p>|- <strong>archetypes</strong> ：存放default.md，头文件格式</p>
+
+<p>|- <strong>content</strong> ：content目录存放博客文章（.markdown/.md文件）</p>
+
+<p>|- <strong>data</strong> ：存放自定义模版，导入的toml文件（或json，yaml）</p>
+
+<p>|- <strong>layouts</strong> ：layouts目录存放的是网站的模板文件</p>
+
+<p>|- <strong>static</strong> ：static目录存放js/css/img等静态资源</p>
+
+<p>|- <strong>config.toml</strong> ：config.toml是网站的配置文件</p>
+
+<p>当前网站是没有任何内容的，需要下载个主题跑起来才有内容。</p>
+
+<h2 id="第3步-添加主题">第3步：添加主题</h2>
+
+<p>这里有各种各样的主题包:<a href="https://themes.gohugo.io">https://themes.gohugo.io</a>，选上一种进行下一步</p>
+
+<p><code>cd xxx</code></p>
+
+<p><code>git init</code></p>
+
+<p><code>git submodule add https://github.com/budparr/gohugo-theme-ananke.git themes/ananke</code></p>
+
+<h2 id="第4步-添加一些内容">第4步：添加一些内容</h2>
+
+<p>下载好之后，现在还没有文章，我们来写一篇文章：</p>
+
+<p><code>hugo new posts/my-first-post.md</code></p>
+
+<p>这样就会在posts目录下生成一个markdown的文件，用markdown工具打开编辑内容即可。</p>
+
+<p>现在启动Hugo本地服务器
+在xxx目录下: <code>hugo server -t 主题名字</code></p>
+
+<p>出现 <code>Web Server is available at http://localhost:1313/ (bind address 127.0.0.1)
+Press Ctrl+C to stop</code>说明已经成功。打开浏览器输入<code>http://localhost:1313</code>看一看预览效果。</p>
+
+<h2 id="第五步-上传到github">第五步 上传到github</h2>
+
+<p>这个时候本地网址已经搭建好了，可以上传到github上。</p>
+
+<ol>
+<li>在xxx目录下，如果已经有public文件夹，则删除：`rm -rf public完全删除该public目录</li>
+
+<li><p>clone 仓库:
+<code>
+git submodule add -b master git@github.com:&lt;USERNAME&gt;/&lt;USERNAME&gt;.github.io.git public 
+</code>
+出现 <em>Not a git repository</em> 提示的话，是因为没有.git这样一个目录，创建一个即可：
+<code>git init</code></p></li>
+
+<li><p>在本地测试好之后：
+<code>hugo --theme=xxx --baseUrl=&quot;https://xxx.github.io/&quot;</code></p></li>
+
+<li><p>更新git</p></li>
+</ol>
+
+<ul>
+<li><code>git add *</code> 全部更新</li>
+<li><code>git commit -m</code> &ldquo;更新内容&rdquo;</li>
+<li><code>git push  https://github.com/xxx/xxx.github.io.git master</code></li>
+</ul>
+
+<hr />
+
+<ul>
+<li>如果出现:</li>
+</ul>
+
+<pre><code>To https://github.com/aniruddhabarapatre/learn-rails.git
+! [rejected]        master -&gt; master (fetch first)
+error: failed to push some refs to 'https://github.com/aniruddhabarapatre/learn-rails.git'
+hint: Updates were rejected because the remote contains work that you do
+hint: not have locally. This is usually caused by another repository pushing
+hint: to the same ref. You may want to first merge the remote changes (e.g.,
+hint: 'git pull') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+
+</code></pre>
+
+<p>用：<code>git push -f https://github.com/chunipo/chunipo.github.io.git  master</code> 强制更新</p>
     </section>
 
 
@@ -353,13 +452,12 @@ s.setAttribute('data-timestamp', +new Date());
 
   <aside class="read-next">
   
-      <a class="read-next-story" style="no-cover" href="/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
+  
+      <a class="read-next-story prev" style="no-cover" href="/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/">
           <section class="post">
               <h2>使用hexo搭建github的个人博客</h2>
-              
           </section>
       </a>
-  
   
 </aside>
 
