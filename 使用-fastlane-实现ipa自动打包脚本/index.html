@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:image" content="/content/images/me/9.jpg"/>
+    
+
+
+
+<meta name="twitter:title" content="使用 fastlane 实现ipa自动打包脚本"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@pSXzNqa4EWTxosq"/>
+
+
+    <link rel="icon" href="/images/icon.png" />
+  	<meta property="og:title" content="使用 fastlane 实现ipa自动打包脚本 &middot; Riven&#39;s Blog" />
+  	<meta property="og:site_name" content="Riven&#39;s Blog" />
+  	<meta property="og:url" content="https://chunipo.github.io/%E4%BD%BF%E7%94%A8-fastlane-%E5%AE%9E%E7%8E%B0ipa%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC/" />
+
+    
+       <meta property="og:image" content="/content/images/me/9.jpg"/>
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2016-12-20T22:19:00&#43;02:00" />
+
+    
+    
+
+    <title>使用 fastlane 实现ipa自动打包脚本 &middot; Riven&#39;s Blog</title>
+
+    
+    <meta name="description" content="&lt;blockquote&gt;
+&lt;p&gt;If will give, no matter how much it has helped the violence.
+&lt;/p&gt;" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Riven&#39;s Blog" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.40.3" />
+
+    <link rel="canonical" href="https://chunipo.github.io/%E4%BD%BF%E7%94%A8-fastlane-%E5%AE%9E%E7%8E%B0ipa%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": https://chunipo.github.io/images/logo.png
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": https://chunipo.github.io/images/logo.png,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": https://chunipo.github.io/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ],
+        "description": IT software and Security Engineer, Open source enthusiast.
+        
+    },
+    "headline": 使用 fastlane 实现ipa自动打包脚本,
+    "name": 使用 fastlane 实现ipa自动打包脚本,
+    "wordCount": 387,
+    "timeRequired": "PT2M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": https://chunipo.github.io/%E4%BD%BF%E7%94%A8-fastlane-%E5%AE%9E%E7%8E%B0ipa%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC/,
+    "datePublished": 2016-12-20T22:19Z,
+    "dateModified": 2016-12-20T22:19Z,
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": https://chunipo.github.io//content/images/me/9.jpg,
+        "width": 3000,
+        "height": 1445
+    },
+    
+    
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": https://chunipo.github.io/%E4%BD%BF%E7%94%A8-fastlane-%E5%AE%9E%E7%8E%B0ipa%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-79101-12', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            <h3>Topics</h3>
+            <li class="nav-opened" role="presentation">
+            	<a href="/security/">Securité</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/pgp/">PGP Pub Key</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/about/">About me</a>
+            </li>
+        
+            <h3>Tools</h3>
+            <li class="nav-opened" role="presentation">
+            	<a href="https://alpha.wallhaven.cc/">图片搜索网站</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://www.bijint.com">YouTube</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://iconfont.cn/home/index">阿里巴巴矢量图标库</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://cybermap.kaspersky.com/cn/">全球网络攻击实时地图</a>
+            </li>
+        
+            <h3>Links</h3>
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ennisk.github.io/">ennisk&#39;s Blog</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Blog</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+  
+  <header class="main-header post-head" style="background-image: url(/content/images/me/9.jpg)">
+  
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://chunipo.github.io/"><img src="/images/logo.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">使用 fastlane 实现ipa自动打包脚本</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2016-12-20T22:19:00&#43;02:00">
+            Dec 20, 2016
+          </time>
+        
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <blockquote>
+<p>If will give, no matter how much it has helped the violence.
+</p>
+
+<p>对于一个iOS APP的发布上线，一般来说都需要经历:<code>编译打包</code> -&gt; <code>截图</code> -&gt; <code>填写一些说明文字</code> -&gt; <code>上传ipa到itunes connect</code> -&gt; <code>提交供审核</code>。每次都要进行这么多“繁琐”的步骤，对于某些步骤可能一次还不能执行成功需要等着界面提示上传错误然后手动重新再来一次（想想都觉得可怕）。
+在日常开发中，打包也是最后上线不可缺少的环节，如果需要生成ipa文件通常需要在Xcode里点击<code>Product</code> -&gt; <code>Archive</code>，然后在弹出来的<code>Organizer</code>中选择导出什么类型(<code>ad hoc</code>/<code>enterprise</code>)的包。对于大项目来说动辄编译十分钟以上的来说，一天打几个包就差不多过去了。
+为了解决这些问题，<a href="https://github.com/KrauseFx">Felix Krause</a>大神写了一个工具集<a href="https://github.com/fastlane/fastlane">fastlane</a>。fastlane是一套使用Ruby写的自动化工具集，用于iOS和Android的自动化打包、发布等工作。</p>
+</blockquote>
+
+<h2 id="前言">前言</h2>
+
+<p>最近用shell打包ipa发现终端总是提示:<br>
+<code>shell error: exportArchive: &quot;***.app&quot; requires a provisioning profile.</code>
+<br>把配置文件删除重新下载也一样，所以索性重新换用另一种脚本工具来打包ipa，发现这个还是挺好用的</p>
+
+<h2 id="介绍">介绍</h2>
+
+<ul>
+<li><p>Fastlane是一套使用Ruby写的自动化工具集，用于iOS和Android的自动化打包、发布等工作，可以节省大量的时间。</p></li>
+
+<li><p>Github：<a href="https://github.com/fastlane/fastlane">https://github.com/fastlane/fastlane</a><br>
+官网：     <a href="https://fastlane.tools">https://fastlane.tools</a><br>
+文档：     <a href="https://docs.fastlane.tools">https://docs.fastlane.tools</a></p></li>
+</ul>
+
+<h2 id="配置环境">配置环境</h2>
+
+<ul>
+<li><p>首先要安装正确的 Ruby 版本。在终端窗口中用下列命令来确认:
+<em><code>ruby -v</code></em></p></li>
+
+<li><p>如果没有安装，则输入命令安装gym:
+<em><code>sudo gem install gym</code></em></p></li>
+
+<li><p>确保Xcode命令行工具安装最新版本，使用如下命令进行安装:
+<em><code>xcode-select --install</code></em></p></li>
+
+<li><p>以上依赖配置好之后就可以通过 rubygem 进行安装fastlane:
+<em><code>sudo gem install fastlane</code></em></p></li>
+
+<li><p>完成安装</p></li>
+</ul>
+
+<h2 id="fastlane实战">fastlane实战</h2>
+
+<h3 id="初始化">初始化</h3>
+
+<ul>
+<li><p>打开终端，cd到你的工程目录，然后执行fastlane init命令开始初始化</p></li>
+
+<li><p>在执行的过程中会要求填写一些项目的资料，如Apple ID等，fastlane会自动检测当前目录下项目的App Name和App Identifier，可以选择自行输入这些信息。初始化完成会在当前目录下面生成一个fastlane的文件夹。</p></li>
+
+<li><p>最重要的两个文件就是Appfile和Fastfile，主要的说明如下</p></li>
+
+<li><p>Appfile里面存放了App的基本信息包括app_identifier、apple_id、team_id等，如果在init的时候输入了正确的apple_id和密码会自动获取team_id。</p></li>
+
+<li><p>Fastfile是最重要的一个文件，在这个里面可以编写和定制我们的自动化脚本，所有的流程控制功能都写在这个文件里面。</p></li>
+</ul>
+
+<h3 id="fastfile-文件">fastfile 文件</h3>
+
+<h6 id="fastfile管理你所创建的-lane-了解详情-它的格式是这样的">Fastfile管理你所创建的 lane ，了解详情。它的格式是这样的：</h6>
+
+<pre><code>desc &quot;企业版&quot;
+lane :inHouse do
+gym(scheme: &quot;XXX&quot;,
+export_method:&quot;enterprise&quot;,
+output_directory &quot;./build&quot;, # 打包后的 ipa 文件存放的目录
+output_name &quot;XXX&quot;  # ipa 文件名
+)
+end
+</code></pre>
+
+<hr />
+
+<h2 id="我的用法">我的用法</h2>
+
+<h3 id="fastfile文件里主要修改四个地方内容">fastfile文件里主要修改四个地方内容</h3>
+
+<ol>
+<li><p><code>platform :ios do</code>（安卓，iOS都可以用）</p></li>
+
+<li><p><code>desc &quot;ad_Hoc 版本&quot;</code>（对lane的描述，fastlane会自动将desc的内容生成说明文档）</p></li>
+
+<li><p><code>lane :beta do</code> （定义一个lane(任务)，可以理解为一个函数，我们在执行的时候使用fastlane lane名称，比如 cd到项目根目录，然后 fastlane beta ）</p></li>
+
+<li><p><code>gym(scheme: “项目名称”, export_method:&quot;app-store&quot;,output_directory: &quot;./build&quot;,）</code></p></li>
+</ol>
+
+<h3 id="我一般用gym语法操作">我一般用gym语法操作</h3>
+
+<pre><code>gym(scheme: scheme_name, clean: true, export_method:'appstore', configuration: configuration, output_directory: output_directory, output_name: output_name)
+</code></pre>
+
+<h3 id="结果">结果</h3>
+
+<p>￼这次我只是用来打包测试，fastlane里的源码：</p>
+
+<pre><code># This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+# For a list of all available actions, check out``
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+# 指定打包所使用的输出方式，目前支持app-store, package, ad-hoc, enterprise, development, 和developer-id
+
+
+default_platform(:ios)
+
+platform :ios do
+desc &quot;ad_Hoc 版本&quot;
+lane :beta do
+gym(scheme: &quot;***&quot;,
+export_method:&quot;ad-hoc&quot;,
+output_directory: &quot;./build&quot;,#文件路径
+)
+end
+end
+</code></pre>
+
+<hr />
+
+<p>接下来我们开始进阶教程，将打包好的ipa上传到fir
+在Fastfile文件里写入：</p>
+
+<pre><code># This is the minimum version number required.
+# Update this, if you use features of a newer version
+# 指定打包所使用的输出方式，目前支持app-store, package, ad-hoc, enterprise, development, 和developer-id
+
+
+
+default_platform :ios
+
+platform :ios do
+
+
+desc &quot;开始打包-内测版--开发证书 - dev&quot;
+#内测版--开发证书
+lane :adhoc do 
+#开始打包
+puts &quot;开始打包-内测版--开发证书 - dev&quot;
+
+gym(
+export_method:&quot;ad-hoc&quot;,
+output_directory:&quot;/Users/weiyuxiang/Desktop/Order/build&quot;,# 打包后的 ipa 文件存放的目录
+) 
+#使用fir-cli上传ipa
+sh &quot;fir publish /Users/weiyuxiang/Desktop/Order/build/***.ipa -T fir的token&quot;
+end
+
+desc &quot;开始打包  --  企业公测版--hoc&quot;
+lane :inhoc do
+gym(
+export_method:&quot;app-store&quot;,
+output_directory:&quot;/Users/weiyuxiang/Desktop/Order/build&quot;,
+)
+#使用fir-cli上传ipa
+sh &quot;fir publish /Users/weiyuxiang/Desktop/Order/build/***.ipa -T  fir的token&quot;
+end
+
+end
+</code></pre>
+
+<p>在测试的时候用 <br>
+<code>fastlane adhoc</code><br>
+上架则用<br>
+<code>fastlane inhoc</code><br>
+到这里一般没有问题，但是楼主我还会遇到一个问题，最后用fir上传的时候会报这些错误：</p>
+
+<pre><code>/Users/weiyuxiang/.rvm/rubies/ruby-2.2.4/lib/ruby/gems/2.2.0/gems/fastlane-2.95.0/fastlane_core/lib/fastlane_core/ui/interface.rb:153:in `shell_error!': [!] Exit status of command 'fir publish /Users/weiyuxiang/Desktop/Order/build/***.ipa -T a5bd6574b7292220d5c4b44b6' was 1 instead of 0. (FastlaneCore::Interface::FastlaneShellError)
+/Users/weiyuxiang/.rvm/gems/ruby-2.2.4@global/gems/bundler-1.16.1/lib/bundler/rubygems_integration.rb:458:in `block in replace_bin_path': can't find executable fir for gem fir-cli. fir-cli is not currently included in the bundle, perhaps you meant to add it to your Gemfile? (Gem::Exception)
+from /Users/weiyuxiang/.rvm/gems/ruby-2.2.4@global/gems/bundler-1.16.1/lib/bundler/rubygems_integration.rb:478:in `block in replace_bin_path'
+from /Users/weiyuxiang/.rvm/gems/ruby-2.2.4/bin/fir:22:in `&lt;main&gt;'
+from /Users/weiyuxiang/.rvm/gems/ruby-2.2.4/bin/ruby_executable_hooks:15:in `eval'
+from /Users/weiyuxiang/.rvm/gems/ruby-2.2.4/bin/ruby_executable_hooks:15:in `&lt;main&gt;'
+</code></pre>
+
+<p>按照错误提示，在 Gemfile 文件里加一句：
+<code>gem &quot;fir&quot;</code>
+即可</p>
+
+<hr />
+
+<p>好啦，先说到这里吧，Fastlane能做的事情还有很多，大家可以去好好看看<a href="https://docs.fastlane.tools/">Fastlane文档</a>，研究一些高级的用法吧！</p>
+
+<p>参考文档：<br>
+1. <a href="http://wuqiuhao.github.io/2016/06/08/fastlane%20gym%E5%AE%9E%E7%8E%B0ipa%E8%87%AA%E5%8A%A8%E6%89%93%E5%8C%85%E8%84%9A%E6%9C%AC/">使用fastlane gym实现ipa自动打包脚本</a><br>
+2. <a href="http://www.cocoachina.com/ios/20170519/19317.html">iOS中使用Fastlane实现自动化打包和发布</a><br>
+3. <a href="https://blog.devzeng.com/blog/ios-fastlane-in-action.html">iOS中fastlane的使用</a></p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://chunipo.github.io/" style="background-image: url(/images/logo.png)"><span class="hidden">Riven's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://chunipo.github.io/">Riven</a></h4>
+  
+  <p>IT software and Security Engineer, Open source enthusiast.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">GuangZhou, China</span>
+    <span class="author-link icon-link"><a href="https://chunipo.github.io/">https://chunipo.github.io/</a></span>
+  </div>
+</section>
+
+
+
+
+    
+
+
+    
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+  
+      <a class="read-next-story prev" style="background-image: url(/content/images/me/15.jpg)" href="/%E7%94%A8-hugo-%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+          <section class="post">
+              <h2>用 Hugo 在 Github 上搭建个人博客</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Riven&#39;s Blog</a> 我们真正迷恋的不是某个东西，而是那个东西所代表的意义和感受，它承载了回忆和联想</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+    
+</body>
+</html>
+
