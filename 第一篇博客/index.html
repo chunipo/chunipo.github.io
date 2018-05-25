@@ -108,7 +108,7 @@
     },
     "headline": 使用 Hexo 搭建 Github 的个人博客,
     "name": 使用 Hexo 搭建 Github 的个人博客,
-    "wordCount": 123,
+    "wordCount": 126,
     "timeRequired": "PT1M",
     "inLanguage": {
       "@type": "Language",
@@ -262,7 +262,7 @@
 
 <p><img src="/content/images/me/14.jpg" alt="" /></p>
 
-<h2 id="git安装">Git安装</h2>
+<h4 id="git安装">Git安装</h4>
 
 <ol>
 <li>mac安装Git
@@ -271,7 +271,7 @@
 <code>brew install node</code></li>
 </ol>
 
-<h2 id="配置ssh-keys">配置SSH keys</h2>
+<h4 id="配置ssh-keys">配置SSH keys</h4>
 
 <ol>
 <li>生成SSH key
@@ -287,38 +287,35 @@
 </ul></li>
 </ol>
 
-<h2 id="测试是否成功">测试是否成功</h2>
-
-<ol>
-<li>ssh -T git@github.com</li>
-<li>设置用户信息
+<p>#### 测试是否成功
+1. ssh -T git@github.com
+2. 设置用户信息
 <code>git config --global user.name &quot;用户名&quot;</code>
-<code>git config --global user.email &quot;邮箱&quot;</code></li>
-</ol>
+<code>git config --global user.email &quot;邮箱&quot;</code></p>
 
-<h2 id="hexo安装设置">hexo安装设置</h2>
+<h4 id="hexo安装设置">hexo安装设置</h4>
 
 <ol>
 <li>安装hexo
 <code>npm install hexo -g</code></li>
-<li>安装成功后
+<li>安装成功后</li>
+<li><code>hexo init  #文件夹路径#</code>
 
 <ul>
-<li><code>hexo init &quot;文件夹路径&quot;</code></li>
 <li><code>hexo g</code> #generate 生成静态网页</li>
 <li><code>hexo s</code> #运行本地服务
 控制台输出：<code>Hexo is running at http://localhost:4000/. Press Ctrl+C to stop</code>,将该地址用浏览器打开查看，如果安装成功，则会显示初始主题</li>
 </ul></li>
 </ol>
 
-<h2 id="安装新的主题">安装新的主题</h2>
+<h4 id="安装新的主题">安装新的主题</h4>
 
 <ol>
 <li>网址：<a href="https://hexo.io/themes/#efficient_reading">https://hexo.io/themes/#efficient_reading</a></li>
 <li>任意打开一个网址，根据要求安装主题即可。</li>
 </ol>
 
-<h2 id="部署到github">部署到github</h2>
+<h4 id="部署到github">部署到github</h4>
 
 <ol>
 <li>有一些主题需要安装类似 <code>npm install hexo-renderer-pug --save</code>，<code>npm install</code>的插件，则需要在创建的文件夹下面安装,在其他地方安装都有可能让主题安装失败。</li>
@@ -343,7 +340,7 @@
      <code>hexo d</code><br>
 按照提示输入账号密码即可。</p>
 
-<h2 id="注意">注意</h2>
+<h4 id="注意">注意</h4>
 
 <p>1.每次修改后，<br>需要先<code>hexo clean</code>，<br>然后<code>hexo g</code>，<br>接着<code>hexo s</code>,<br>没问题的话再部署到服务器上。</p>
     </section>
