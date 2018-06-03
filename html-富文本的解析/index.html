@@ -12,15 +12,15 @@
 
 
 
-<meta name="twitter:title" content="Git 分支管理"/>
+<meta name="twitter:title" content="HTML 富文本的解析"/>
 <meta name="twitter:description" content=""/>
 <meta name="twitter:site" content="@pSXzNqa4EWTxosq"/>
 
 
     <link rel="icon" href="/images/icon.png" />
-  	<meta property="og:title" content="Git 分支管理 &middot; Riven&#39;s Blog" />
+  	<meta property="og:title" content="HTML 富文本的解析 &middot; Riven&#39;s Blog" />
   	<meta property="og:site_name" content="Riven&#39;s Blog" />
-  	<meta property="og:url" content="https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" />
+  	<meta property="og:url" content="https://chunipo.github.io/html-%E5%AF%8C%E6%96%87%E6%9C%AC%E7%9A%84%E8%A7%A3%E6%9E%90/" />
 
     
         
@@ -36,15 +36,15 @@
     
     
 
-    <title>Git 分支管理 &middot; Riven&#39;s Blog</title>
+    <title>HTML 富文本的解析 &middot; Riven&#39;s Blog</title>
 
     
     <meta name="description" content="&lt;blockquote&gt;
-&lt;p&gt;The only theory, the purpose of life is building a paradise on earth in the earth.&lt;/p&gt;
+&lt;p&gt;The harsh truth is, I love this harsh, it never cheat.&lt;/p&gt;
 &lt;/blockquote&gt;
 
 &lt;p&gt;&lt;br&gt;
-&lt;img src=&#34;/content/images/me/2.jpg" />
+&lt;img src=&#34;/content/images/me/5.jpg&#34; alt=&#34;&#34; /&gt;&lt;/p&gt;" />
     
 
     <meta name="HandheldFriendly" content="True" />
@@ -68,7 +68,7 @@
     
     <meta name="generator" content="Hugo 0.40.3" />
 
-    <link rel="canonical" href="https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" />
+    <link rel="canonical" href="https://chunipo.github.io/html-%E5%AF%8C%E6%96%87%E6%9C%AC%E7%9A%84%E8%A7%A3%E6%9E%90/" />
 
     
       
@@ -107,15 +107,15 @@
         "description": IT software and Security Engineer, Open source enthusiast.
         
     },
-    "headline": Git 分支管理,
-    "name": Git 分支管理,
-    "wordCount": 75,
-    "timeRequired": "PT1M",
+    "headline": HTML 富文本的解析,
+    "name": HTML 富文本的解析,
+    "wordCount": 312,
+    "timeRequired": "PT2M",
     "inLanguage": {
       "@type": "Language",
       "alternateName": en
     },
-    "url": https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/,
+    "url": https://chunipo.github.io/html-%E5%AF%8C%E6%96%87%E6%9C%AC%E7%9A%84%E8%A7%A3%E6%9E%90/,
     "datePublished": 2016-09-18T22:19Z,
     "dateModified": 2016-09-18T22:19Z,
     
@@ -123,7 +123,7 @@
     "description": ,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/
+        "@id": https://chunipo.github.io/html-%E5%AF%8C%E6%96%87%E6%9C%AC%E7%9A%84%E8%A7%A3%E6%9E%90/
     }
 }
     </script>
@@ -240,7 +240,7 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">Git 分支管理</h1>
+        <h1 class="post-title">HTML 富文本的解析</h1>
         <small></small>
 
         <section class="post-meta">
@@ -255,42 +255,129 @@
 
     <section class="post-content">
       <blockquote>
-<p>The only theory, the purpose of life is building a paradise on earth in the earth.</p>
+<p>The harsh truth is, I love this harsh, it never cheat.</p>
 </blockquote>
 
 <p><br>
-<img src="/content/images/me/2.jpg" alt="" /></p>
+<img src="/content/images/me/5.jpg" alt="" /></p>
 
-<p>在分支有改动后，提交：</p>
+<h2 id="用-uilabel-加载富文本">用 UILabel 加载富文本</h2>
 
-<p><code>git commit -m &quot;changeDev&quot;</code></p>
+<h3 id="1-将-html-字符串转化为标准-html-字符串">1.将 HTML 字符串转化为标准 HTML 字符串</h3>
 
-<p>然后换到主线上：</p>
+<pre><code>//将html语言符号转成oc里同样作用的符号
+NSString *string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;quot;&quot; withString:@&quot;\&quot;&quot;];
+string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;apos;&quot; withString:@&quot;'&quot;];
+string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;lt;&quot; withString:@&quot;&lt;&quot;];
+string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;gt;&quot; withString:@&quot;&gt;&quot;];
+string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;amp;&quot; withString:@&quot;&amp;&quot;];
+</code></pre>
 
-<p><code>git checkout master</code></p>
+<h3 id="2-将html字符串转换为attributestring">2.将HTML字符串转换为attributeString</h3>
 
-<p>换到主线后，看看在分支修改的内容已经没有了，这个时候再换到分支上：</p>
+<pre><code>NSDictionary *options = @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType,
+NSCharacterEncodingDocumentAttribute :@(NSUTF8StringEncoding) };
 
-<p><code>git checkout dev</code></p>
+NSData *data = [string dataUsingEncoding:NSUTF8StringEncoding];
 
-<p>会出现 错误</p>
+NSAttributedString *normalAttr = [[NSAttributedString alloc] initWithData:data options:options documentAttributes:nil error:nil];
+</code></pre>
 
-<pre><code>error: Your local changes to the following files would be overwritten by checkout:
-QianTuMei.xcworkspace/xcuserdata/weiyuxiang.xcuserdatad/UserInterfaceState.xcuserstate
-Please commit your changes or stash them before you switch branches.
+<h3 id="3-将其放入label中显示">3.将其放入label中显示</h3>
+
+<p><code>self.label.attributedText = normalAttr;</code></p>
+
+<h3 id="注意">注意</h3>
+
+<p>有时候后台返回的富文本可能是没有任何内容，只是一些代表空格的html符号，比如<code>@&quot;&amp;lt;p&amp;gt;&amp;lt;br&amp;gt;&amp;lt;/p&amp;gt&quot;</code></p>
+
+<p>这个时候可以去掉这些符号标签：</p>
+
+<pre><code>NSScanner * scanner = [NSScanner scannerWithString:string];
+NSString * text = nil;
+while([scanner isAtEnd]==NO)
+{
+//找到标签的起始位置
+[scanner scanUpToString:@&quot;&lt;&quot; intoString:nil];
+//找到标签的结束位置
+[scanner scanUpToString:@&quot;&gt;&quot; intoString:&amp;text];
+//替换字符
+html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@&quot;%@&gt;&quot;,text] withString:@&quot;&quot;];
+}
+</code></pre>
+
+<h2 id="封装方法-实际调用的时候可以这样">封装方法，实际调用的时候可以这样</h2>
+
+<pre><code>NSString *str = [self htmlEntityDecode:model.directions];
+NSAttributedString * attributeStr = [self attributedStringWithHTMLString:str];
+//可以在这里做个判断，如果 attributeStr 内容为空 ，则显示提示内容
+if ([attributeStr isEqualToAttributedString:[[NSAttributedString alloc]initWithString:@&quot;&quot;]]) {
+    //...为空
+}else
+self.detailLabel.attributedText = attributeStr;
 
 </code></pre>
 
-<p>需要：
-<code>git add QianTuMei.xcworkspace/xcuserdata/weiyuxiang.xcuserdatad/UserInterfaceState.xcuserstate</code></p>
+<pre><code>//将 &amp;lt 等类似的字符转化为HTML中的“&lt;”等
+- (NSString *)htmlEntityDecode:(NSString *)string
+{
+string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;quot;&quot; withString:@&quot;\&quot;&quot;];
+string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;apos;&quot; withString:@&quot;'&quot;];
+string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;lt;&quot; withString:@&quot;&lt;&quot;];
+string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;gt;&quot; withString:@&quot;&gt;&quot;];
+string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;amp;&quot; withString:@&quot;&amp;&quot;]; // Do this last so that, e.g. @&quot;&amp;amp;lt;&quot; goes to @&quot;&amp;lt;&quot; not @&quot;&lt;&quot;
 
-<p>然后再push上去:</p>
+return string;
+}
 
-<p><code>git push origin dev</code></p>
+//将HTML字符串转化为NSAttributedString富文本字符串
+- (NSAttributedString *)attributedStringWithHTMLString:(NSString *)htmlString
+{
+/**处理数据为空*/
+NSString *isEmptyStr = [self filterHTML:htmlString];
+NSDictionary *isEmptyoptions = @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType,
+NSCharacterEncodingDocumentAttribute :@(NSUTF8StringEncoding) };
 
-<p>创建分支 : <code>git branch xxx</code></p>
+NSData *isEmptydata = [isEmptyStr dataUsingEncoding:NSUTF8StringEncoding];
+//如果为空则返回这个
+NSAttributedString *isEmpty = [[NSAttributedString alloc] initWithData:isEmptydata options:isEmptyoptions documentAttributes:nil error:nil];
 
-<p>查看当前主线：<code>git branch</code> ,前面带 * 为当前主线</p>
+/** 处理数据不为空 */
+NSDictionary *options = @{ NSDocumentTypeDocumentAttribute : NSHTMLTextDocumentType,
+NSCharacterEncodingDocumentAttribute :@(NSUTF8StringEncoding) };
+
+NSData *data = [htmlString dataUsingEncoding:NSUTF8StringEncoding];
+NSAttributedString *normalAttr = [[NSAttributedString alloc] initWithData:data options:options documentAttributes:nil error:nil];
+
+if ([isEmpty isEqualToAttributedString:[[NSAttributedString alloc]initWithString:@&quot;&quot;]]) {
+return isEmpty;
+}else{
+return normalAttr;
+}
+
+
+}
+
+//去掉 HTML 字符串中的标签
+- (NSString *)filterHTML:(NSString *)html
+{
+NSScanner * scanner = [NSScanner scannerWithString:html];
+NSString * text = nil;
+while([scanner isAtEnd]==NO)
+{
+//找到标签的起始位置
+[scanner scanUpToString:@&quot;&lt;&quot; intoString:nil];
+//找到标签的结束位置
+[scanner scanUpToString:@&quot;&gt;&quot; intoString:&amp;text];
+//替换字符
+html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@&quot;%@&gt;&quot;,text] withString:@&quot;&quot;];
+}
+//    NSString * regEx = @&quot;&lt;([^&gt;]*)&gt;&quot;;
+//    html = [html stringByReplacingOccurrencesOfString:regEx withString:@&quot;&quot;];
+return html;
+}
+
+</code></pre>
     </section>
 
 
@@ -342,19 +429,13 @@ Please commit your changes or stash them before you switch branches.
 
   <aside class="read-next">
   
-      <a class="read-next-story" style="background-image: url(/content/images/me/8.jpg)" href="/block-%E7%9A%84%E4%BD%BF%E7%94%A8/">
+      <a class="read-next-story" style="no-cover" href="/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/">
           <section class="post">
-              <h2>Block 的使用</h2>
+              <h2>Git 分支管理</h2>
               
           </section>
       </a>
   
-  
-      <a class="read-next-story prev" style="no-cover" href="/html-%E5%AF%8C%E6%96%87%E6%9C%AC%E7%9A%84%E8%A7%A3%E6%9E%90/">
-          <section class="post">
-              <h2>HTML 富文本的解析</h2>
-          </section>
-      </a>
   
 </aside>
 
