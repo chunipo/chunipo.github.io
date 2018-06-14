@@ -109,7 +109,7 @@
     },
     "headline": HTML 富文本的解析,
     "name": HTML 富文本的解析,
-    "wordCount": 312,
+    "wordCount": 386,
     "timeRequired": "PT2M",
     "inLanguage": {
       "@type": "Language",
@@ -261,9 +261,9 @@
 <p><br>
 <img src="/content/images/me/5.jpg" alt="" /></p>
 
-<h2 id="用-uilabel-加载富文本">用 UILabel 加载富文本</h2>
+<h2 id="一-用-uilabel-加载富文本">一. 用 UILabel 加载富文本</h2>
 
-<h3 id="1-将-html-字符串转化为标准-html-字符串">1.将 HTML 字符串转化为标准 HTML 字符串</h3>
+<h3 id="br-1-将-html-字符串转化为标准-html-字符串"><br>1.将 HTML 字符串转化为标准 HTML 字符串</h3>
 
 <pre><code>//将html语言符号转成oc里同样作用的符号
 NSString *string = [string stringByReplacingOccurrencesOfString:@&quot;&amp;quot;&quot; withString:@&quot;\&quot;&quot;];
@@ -377,6 +377,39 @@ html = [html stringByReplacingOccurrencesOfString:[NSString stringWithFormat:@&q
 return html;
 }
 
+</code></pre>
+
+<h2 id="二-用-wkwebview-加载富文本">二. 用 WKWebView 加载富文本</h2>
+
+<p><br>label加载会占用大量的内存，容易导致失帧情况，用 WKWebView 就不会出现这样的问题。</p>
+
+<p>### 1.添加自适应宽度</p>
+
+<pre><code> WKUserScript *wkUScript = [[WKUserScript alloc] initWithSource:jScript injectionTime:WKUserScriptInjectionTimeAtDocumentEnd forMainFrameOnly:YES];
+ WKUserContentController *wkUController = [[WKUserContentController alloc] init];
+ [wkUController addUserScript:wkUScript];
+ 
+ WKWebViewConfiguration *wkWebConfig = [[WKWebViewConfiguration alloc] init];
+ wkWebConfig.userContentController = wkUController;
+</code></pre>
+
+<p>### 2.创建 WKWebView</p>
+
+<pre><code> //不能用自适应布局，如果不清楚内容大小，献给 1 个高度的大小
+ WKWebView *wkWebView = [[WKWebView alloc]initWithFrame:CGRectMake(30,33, SCREEN_WIDTH, 1) configuration:wkWebConfig];
+ //自身代理
+ WKWebView *wkWebView.navigationDelegate = self;
+ //禁止弹性
+ WKWebView *wkWebView.scrollView.scrollEnabled = NO;
+ 设置滑动代理
+ WKWebView *wkWebView.scrollView.delegate = self;
+</code></pre>
+
+<p>### 3.加载富文本</p>
+
+<pre><code> NSString *str = [self htmlEntityDecode:url];
+
+ [wkWebView loadHTMLString:str baseURL:nil];
 </code></pre>
     </section>
 
