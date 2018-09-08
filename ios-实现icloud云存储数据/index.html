@@ -7,44 +7,40 @@
 
     
     
-        <meta name="twitter:card" content="summary"/>
+        
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:image" content="/content/images/me/8.jpg"/>
     
 
 
 
-<meta name="twitter:title" content="Git 分支管理"/>
+<meta name="twitter:title" content="iOS 实现iCloud云存储数据"/>
 <meta name="twitter:description" content=""/>
 <meta name="twitter:site" content="@pSXzNqa4EWTxosq"/>
 
 
     <link rel="icon" href="/images/icon.png" />
-  	<meta property="og:title" content="Git 分支管理 &middot; Riven&#39;s Blog" />
+  	<meta property="og:title" content="iOS 实现iCloud云存储数据 &middot; Riven&#39;s Blog" />
   	<meta property="og:site_name" content="Riven&#39;s Blog" />
-  	<meta property="og:url" content="https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" />
+  	<meta property="og:url" content="https://chunipo.github.io/ios-%E5%AE%9E%E7%8E%B0icloud%E4%BA%91%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE/" />
 
     
-        
-            <meta property="og:image" content="/images/cover_polenord.jpg"/>
-        
+       <meta property="og:image" content="/content/images/me/8.jpg"/>
     
 
     
     <meta property="og:description" content="" />
   	<meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2016-09-18T22:19:00&#43;02:00" />
+    <meta property="article:published_time" content="2017-09-18T22:19:00&#43;02:00" />
 
     
     
 
-    <title>Git 分支管理 &middot; Riven&#39;s Blog</title>
+    <title>iOS 实现iCloud云存储数据 &middot; Riven&#39;s Blog</title>
 
     
     <meta name="description" content="&lt;blockquote&gt;
-&lt;p&gt;The only theory, the purpose of life is building a paradise on earth in the earth.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src=&#34;/content/images/me/2.jpg" />
+&lt;p&gt;Hope in action is a love, a good in action is good.&lt;/p&gt;" />
     
 
     <meta name="HandheldFriendly" content="True" />
@@ -68,7 +64,7 @@
     
     <meta name="generator" content="Hugo 0.40.3" />
 
-    <link rel="canonical" href="https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" />
+    <link rel="canonical" href="https://chunipo.github.io/ios-%E5%AE%9E%E7%8E%B0icloud%E4%BA%91%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE/" />
 
     
       
@@ -107,23 +103,30 @@
         "description": IT software and Security Engineer, Open source enthusiast.
         
     },
-    "headline": Git 分支管理,
-    "name": Git 分支管理,
-    "wordCount": 75,
+    "headline": iOS 实现iCloud云存储数据,
+    "name": iOS 实现iCloud云存储数据,
+    "wordCount": 42,
     "timeRequired": "PT1M",
     "inLanguage": {
       "@type": "Language",
       "alternateName": en
     },
-    "url": https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/,
-    "datePublished": 2016-09-18T22:19Z,
-    "dateModified": 2016-09-18T22:19Z,
+    "url": https://chunipo.github.io/ios-%E5%AE%9E%E7%8E%B0icloud%E4%BA%91%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE/,
+    "datePublished": 2017-09-18T22:19Z,
+    "dateModified": 2017-09-18T22:19Z,
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": https://chunipo.github.io//content/images/me/8.jpg,
+        "width": 3000,
+        "height": 1445
+    },
     
     
     "description": ,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/
+        "@id": https://chunipo.github.io/ios-%E5%AE%9E%E7%8E%B0icloud%E4%BA%91%E5%AD%98%E5%82%A8%E6%95%B0%E6%8D%AE/
     }
 }
     </script>
@@ -217,8 +220,10 @@
 
 
 
-<header class="main-header post-head no-cover">
-  <nav class="main-nav clearfix">
+  
+  <header class="main-header post-head" style="background-image: url(/content/images/me/8.jpg)">
+  
+  <nav class="main-nav overlay clearfix">
 
 
   
@@ -240,13 +245,13 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">Git 分支管理</h1>
+        <h1 class="post-title">iOS 实现iCloud云存储数据</h1>
         <small></small>
 
         <section class="post-meta">
         
-          <time class="post-date" datetime="2016-09-18T22:19:00&#43;02:00">
-            Sep 18, 2016
+          <time class="post-date" datetime="2017-09-18T22:19:00&#43;02:00">
+            Sep 18, 2017
           </time>
         
          
@@ -255,42 +260,46 @@
 
     <section class="post-content">
       <blockquote>
-<p>The only theory, the purpose of life is building a paradise on earth in the earth.</p>
+<p>Hope in action is a love, a good in action is good.</p>
+
+<p>因为上一次做了用keychain来持久化存储一些特定的数据，后来发现这样做不能保证特别安全。虽然在iOS 系统升级后，钥匙串并不会受到影响，但是在系统还原之后，钥匙串也会跟着重置。另外如果设备损坏不能使用，存储在这个设备钥匙串上的信息也不能够读取出来了。</p>
 </blockquote>
 
-<p><br>
-<img src="/content/images/me/2.jpg" alt="" /></p>
+<p>同时因为公司要求，业务的需要，需要用iCloud来存储一些特定的数据，所以就开始对iCloud的使用进行了初步的学习，只要能上手操作就好~所以就不说那么都的原理，咱们开始动手操作一番吧。</p>
 
-<p>在分支有改动后，提交：</p>
+<hr />
 
-<p><code>git commit -m &quot;changeDev&quot;</code></p>
+<h3 id="1-去苹果开发者中心添加icloud容器-也就是-icloud-containers">1.去苹果开发者中心添加iCloud容器，也就是 iCloud Containers，</h3>
 
-<p>然后换到主线上：</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5810827-c5c349788fae35a8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/506/format/webp." alt="" /></p>
 
-<p><code>git checkout master</code></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5810827-6573c244a226eb9e.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp." alt="" /></p>
 
-<p>换到主线后，看看在分支修改的内容已经没有了，这个时候再换到分支上：</p>
+<p>id格式为 iCloud.+bundle ID ，这个bundle ID不一定是你的工程里的bundle ID，只要你在APP ID里把这个容器添加进去就行了(目前发现是这样没错~)</p>
 
-<p><code>git checkout dev</code></p>
+<h3 id="2-在工程里把icloud功能打开-将容器添加上去-可能也会自动给你配置">2.在工程里把iCloud功能打开，将容器添加上去，可能也会自动给你配置</h3>
 
-<p>会出现 错误</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/5810827-ce4d3983e1c8bf66.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp." alt="" /></p>
 
-<pre><code>error: Your local changes to the following files would be overwritten by checkout:
-QianTuMei.xcworkspace/xcuserdata/weiyuxiang.xcuserdatad/UserInterfaceState.xcuserstate
-Please commit your changes or stash them before you switch branches.
+<h3 id="3-用-nsurl-url-manager-urlforubiquitycontaineridentifier-nil-来判断icloud是否为开启状态-如果url为空-表示icloud还未开启">3.用 NSURL *url = [manager URLForUbiquityContainerIdentifier:nil];  来判断iCloud是否为开启状态，如果url为空，表示iCloud还未开启</h3>
 
-</code></pre>
+<h3 id="4">4</h3>
 
-<p>需要：
-<code>git add QianTuMei.xcworkspace/xcuserdata/weiyuxiang.xcuserdatad/UserInterfaceState.xcuserstate</code></p>
+<p>1.查询iCloud中存储有需要的数据
+<img src="https://upload-images.jianshu.io/upload_images/5810827-93eb89beaa6a0809.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp." alt="" /></p>
 
-<p>然后再push上去:</p>
+<p>2.添加数据到iCloud中
+<img src="https://upload-images.jianshu.io/upload_images/5810827-9b84f415992887c8.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp." alt="" /></p>
 
-<p><code>git push origin dev</code></p>
+<p>3.这是核心方法，上面一切都会调用这个私有方法
+<img src="https://upload-images.jianshu.io/upload_images/5810827-46385e1d6df9f0cd.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp." alt="" /></p>
 
-<p>创建分支 : <code>git branch xxx</code></p>
+<p>附录
+<img src="https://upload-images.jianshu.io/upload_images/5810827-22c66beed84e9d9f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1000/format/webp." alt="" /></p>
 
-<p>查看当前主线：<code>git branch</code> ,前面带 * 为当前主线</p>
+<p>大功告成，只要按照我的步骤操作，就没有问题啦~~</p>
+
+<p>PS：还有一个类文件我就不贴出来了~如果有需要的可以点击喜欢后来找我获取⁄(⁄ ⁄•⁄ω⁄•⁄ ⁄)⁄</p>
     </section>
 
 
@@ -342,17 +351,17 @@ Please commit your changes or stash them before you switch branches.
 
   <aside class="read-next">
   
-      <a class="read-next-story" style="background-image: url(/content/images/me/15.jpg)" href="/%E7%94%A8-hugo-%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+      <a class="read-next-story" style="background-image: url(/content/images/me/8.jpg)" href="/ios-app-%E5%86%85%E8%B7%B3%E8%BD%AC%E5%88%B0%E6%89%8B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE/">
           <section class="post">
-              <h2>用 Hugo 在 Github 上搭建个人博客</h2>
+              <h2>iOS app 内跳转到手机系统相关设置</h2>
               
           </section>
       </a>
   
   
-      <a class="read-next-story prev" style="no-cover" href="/html-%E5%AF%8C%E6%96%87%E6%9C%AC%E7%9A%84%E8%A7%A3%E6%9E%90/">
+      <a class="read-next-story prev" style="background-image: url(/content/images/me/8.jpg)" href="/%E5%BE%AE%E4%BF%A1%E5%B0%8F%E7%A8%8B%E5%BA%8F%E4%B9%8B%E8%B7%AF/">
           <section class="post">
-              <h2>HTML 富文本的解析</h2>
+              <h2>微信小程序之路</h2>
           </section>
       </a>
   

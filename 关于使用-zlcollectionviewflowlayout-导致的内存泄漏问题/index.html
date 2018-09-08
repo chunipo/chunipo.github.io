@@ -7,44 +7,40 @@
 
     
     
-        <meta name="twitter:card" content="summary"/>
+        
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:image" content="/content/images/me/2.jpg"/>
     
 
 
 
-<meta name="twitter:title" content="Git 分支管理"/>
+<meta name="twitter:title" content="关于使用 ZLCollectionViewFlowLayout 导致的内存泄漏问题"/>
 <meta name="twitter:description" content=""/>
 <meta name="twitter:site" content="@pSXzNqa4EWTxosq"/>
 
 
     <link rel="icon" href="/images/icon.png" />
-  	<meta property="og:title" content="Git 分支管理 &middot; Riven&#39;s Blog" />
+  	<meta property="og:title" content="关于使用 ZLCollectionViewFlowLayout 导致的内存泄漏问题 &middot; Riven&#39;s Blog" />
   	<meta property="og:site_name" content="Riven&#39;s Blog" />
-  	<meta property="og:url" content="https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" />
+  	<meta property="og:url" content="https://chunipo.github.io/%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8-zlcollectionviewflowlayout-%E5%AF%BC%E8%87%B4%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" />
 
     
-        
-            <meta property="og:image" content="/images/cover_polenord.jpg"/>
-        
+       <meta property="og:image" content="/content/images/me/2.jpg"/>
     
 
     
     <meta property="og:description" content="" />
   	<meta property="og:type" content="article" />
-    <meta property="article:published_time" content="2016-09-18T22:19:00&#43;02:00" />
+    <meta property="article:published_time" content="2017-03-03T22:19:00&#43;02:00" />
 
     
     
 
-    <title>Git 分支管理 &middot; Riven&#39;s Blog</title>
+    <title>关于使用 ZLCollectionViewFlowLayout 导致的内存泄漏问题 &middot; Riven&#39;s Blog</title>
 
     
     <meta name="description" content="&lt;blockquote&gt;
-&lt;p&gt;The only theory, the purpose of life is building a paradise on earth in the earth.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src=&#34;/content/images/me/2.jpg" />
+&lt;p&gt;Bold, bold and determination can is worth sophisticated weapons.&lt;/p&gt;" />
     
 
     <meta name="HandheldFriendly" content="True" />
@@ -68,7 +64,7 @@
     
     <meta name="generator" content="Hugo 0.40.3" />
 
-    <link rel="canonical" href="https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/" />
+    <link rel="canonical" href="https://chunipo.github.io/%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8-zlcollectionviewflowlayout-%E5%AF%BC%E8%87%B4%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/" />
 
     
       
@@ -107,23 +103,30 @@
         "description": IT software and Security Engineer, Open source enthusiast.
         
     },
-    "headline": Git 分支管理,
-    "name": Git 分支管理,
-    "wordCount": 75,
+    "headline": 关于使用 ZLCollectionViewFlowLayout 导致的内存泄漏问题,
+    "name": 关于使用 ZLCollectionViewFlowLayout 导致的内存泄漏问题,
+    "wordCount": 109,
     "timeRequired": "PT1M",
     "inLanguage": {
       "@type": "Language",
       "alternateName": en
     },
-    "url": https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/,
-    "datePublished": 2016-09-18T22:19Z,
-    "dateModified": 2016-09-18T22:19Z,
+    "url": https://chunipo.github.io/%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8-zlcollectionviewflowlayout-%E5%AF%BC%E8%87%B4%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/,
+    "datePublished": 2017-03-03T22:19Z,
+    "dateModified": 2017-03-03T22:19Z,
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": https://chunipo.github.io//content/images/me/2.jpg,
+        "width": 3000,
+        "height": 1445
+    },
     
     
     "description": ,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": https://chunipo.github.io/git-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86/
+        "@id": https://chunipo.github.io/%E5%85%B3%E4%BA%8E%E4%BD%BF%E7%94%A8-zlcollectionviewflowlayout-%E5%AF%BC%E8%87%B4%E7%9A%84%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F%E9%97%AE%E9%A2%98/
     }
 }
     </script>
@@ -217,8 +220,10 @@
 
 
 
-<header class="main-header post-head no-cover">
-  <nav class="main-nav clearfix">
+  
+  <header class="main-header post-head" style="background-image: url(/content/images/me/2.jpg)">
+  
+  <nav class="main-nav overlay clearfix">
 
 
   
@@ -240,13 +245,13 @@
   <article class="post post">
 
     <header class="post-header">
-        <h1 class="post-title">Git 分支管理</h1>
+        <h1 class="post-title">关于使用 ZLCollectionViewFlowLayout 导致的内存泄漏问题</h1>
         <small></small>
 
         <section class="post-meta">
         
-          <time class="post-date" datetime="2016-09-18T22:19:00&#43;02:00">
-            Sep 18, 2016
+          <time class="post-date" datetime="2017-03-03T22:19:00&#43;02:00">
+            Mar 3, 2017
           </time>
         
          
@@ -255,42 +260,102 @@
 
     <section class="post-content">
       <blockquote>
-<p>The only theory, the purpose of life is building a paradise on earth in the earth.</p>
+<p>Bold, bold and determination can is worth sophisticated weapons.</p>
 </blockquote>
 
-<p><br>
-<img src="/content/images/me/2.jpg" alt="" /></p>
+<p>在ZLCollectionViewFlowLayout里有一句代码导致了内存泄漏，具体是：
+<img src="https://upload-images.jianshu.io/upload_images/5810827-b2a326733e8be860.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.jpg" />
+这用到了c语言的函数malloc方法，但是在使用完之后没有及时清理，下面科普一下。</p>
 
-<p>在分支有改动后，提交：</p>
+<hr />
 
-<p><code>git commit -m &quot;changeDev&quot;</code></p>
+<p>C语言的函数malloc和free</p>
 
-<p>然后换到主线上：</p>
+<p>(1) 函数malloc和free在头文件<stdlib.h>中的原型及参数</p>
 
-<p><code>git checkout master</code></p>
+<p>void * malloc(size_t size)</p>
 
-<p>换到主线后，看看在分支修改的内容已经没有了，这个时候再换到分支上：</p>
+<p>动态配置内存，大小有size决定，返回值成功时为任意类型指针，失败时为NULL。</p>
 
-<p><code>git checkout dev</code></p>
+<p>void  free(void *ptr)</p>
 
-<p>会出现 错误</p>
+<p>释放动态申请的内存空间，调用free()后ptr所指向的内存空间被收回，如果ptr指向未知地方或者指向的空间已被收回，则会发生不可预知的错误，如果ptr为NULL，free不会有任何作用。</p>
 
-<pre><code>error: Your local changes to the following files would be overwritten by checkout:
-QianTuMei.xcworkspace/xcuserdata/weiyuxiang.xcuserdatad/UserInterfaceState.xcuserstate
-Please commit your changes or stash them before you switch branches.
+<p>(2) C语言中典型用法
+[图片上传中&hellip;(1526454177015.jpg-84ad17-1526483153801-0)]</p>
 
+<p>T为任意数据类型</p>
+
+<p>T *p = ( T * )malloc( sizeof(T) * n)</p>
+
+<p>if(NULL= =p)</p>
+
+<p>{</p>
+
+<p>printf(“malloc fail!\n”);</p>
+
+<p>……//相关资源收回的处理</p>
+
+<p>exit(-1);</p>
+
+<p>}</p>
+
+<p>… …//此过程不能改变指针p的指向，如果改变指针指向，那么后面free将会出错，因为这里free的并不是原来的p指针，而是改变后的。当然如果改变了p的指向，那么必须再free前，将p再指回原来的位置。这样就没问题了。</p>
+
+<p>free(p);</p>
+
+<p>p=NULL;</p>
+
+<p>注意：malloc后通常要对返回值进行判断，避免发生不必要的错误。</p>
+
+<p>注意，最好再p 被free掉后，加上p=NULL这句</p>
+
+<p>“野指针”不是NULL指针，是指向“垃圾”内存（不可用内存）的指针。人们一般不会错用NULL指针，因为用if语句很容易判断。但是“野指针”是很危险的，if无法判断一个指针是正常指针还是“野指针”。有个良好的编程习惯是避免“野指针”的唯一方法。</p>
+
+<p>指针p被free或者delete之后，没有置为NULL，让人误以为p是个合法的指针。别看free和delete的名字（尤其是delete），它们只是把指针所指的内存给释放掉，但并没有把指针本身干掉。此时指针指向的就是“垃圾”内存。释放后的指针应立即将指针置为NULL，防止产生“野指针”。</p>
+
+<p>(3) 内存说明</p>
+
+<p>malloc函数动态申请的内存空间是在堆里(而一般局部变量存于栈里)，并且该段内存不会被初始化，与全局变量不一样，如果不采用手动free()加以释放，则该段内存一直存在，直到程序退出才被系统，所以为了合理使用内存，在不适用该段内存时，应该调用free()。另外，如果在一个函数里面使用过malloc，最好要配对使用free，否则容易造成内存泄露（没有将内存还给自由存储区）。</p>
+
+<p>但是，往往会在free的时候发生段错误.</p>
+
+<p>正确的做法是这样：</p>
+
+<p>// 在分配之前加一句判断指针是否为空，防止产生内存泄露</p>
+
+<p>struct XXXX * ptr=NULL;
+if (ptr == NULL) {
+ptr  =  (struct XXXX *)malloc(num * sizeof(struct XXXX);</p>
+
+<p>}</p>
+
+<p>// 在释放之前加一句判断指针是否为空，防止产生异常
+if (ptr != NULL) {
+free(ptr);
+ptr = NULL;</p>
+
+<p>}</p>
+
+<p>补充：C 语言作为 Linux 系统上标准的编程语言给予了我们对动态内存分配很大的控制权。</p>
+
+<p>然而，这种自由可能会导致严重的内存管理问题，</p>
+
+<p>而这些问题可能导致程序崩溃或随时间的推移导致性能降级。</p>
+
+<p>内存泄漏（即 malloc() 内存在对应的 free() 调用执行后永不被释放）</p>
+
+<p>和缓冲区溢出（例如对以前分配到某数组的内存进行写操作）是一些常见的问题，</p>
+
+<p>它们可能很难检测到。</p>
+
+<hr />
+
+<p>因此解决办法是在最后把它给释放调，具体做法参考上面：</p>
+
+<pre><code>free(columnHeight);
+columnHeight = NULL;
 </code></pre>
-
-<p>需要：
-<code>git add QianTuMei.xcworkspace/xcuserdata/weiyuxiang.xcuserdatad/UserInterfaceState.xcuserstate</code></p>
-
-<p>然后再push上去:</p>
-
-<p><code>git push origin dev</code></p>
-
-<p>创建分支 : <code>git branch xxx</code></p>
-
-<p>查看当前主线：<code>git branch</code> ,前面带 * 为当前主线</p>
     </section>
 
 
@@ -342,17 +407,17 @@ Please commit your changes or stash them before you switch branches.
 
   <aside class="read-next">
   
-      <a class="read-next-story" style="background-image: url(/content/images/me/15.jpg)" href="/%E7%94%A8-hugo-%E5%9C%A8-github-%E4%B8%8A%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">
+      <a class="read-next-story" style="background-image: url(/content/images/me/8.jpg)" href="/http-%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
           <section class="post">
-              <h2>用 Hugo 在 Github 上搭建个人博客</h2>
+              <h2>HTTP 基础知识</h2>
               
           </section>
       </a>
   
   
-      <a class="read-next-story prev" style="no-cover" href="/html-%E5%AF%8C%E6%96%87%E6%9C%AC%E7%9A%84%E8%A7%A3%E6%9E%90/">
+      <a class="read-next-story prev" style="background-image: url(/content/images/me/1.jpg)" href="/reactive-cocoa-%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">
           <section class="post">
-              <h2>HTML 富文本的解析</h2>
+              <h2>Reactive Cocoa 的简单使用</h2>
           </section>
       </a>
   

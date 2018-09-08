@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:image" content="/content/images/me/5.jpg"/>
+    
+
+
+
+<meta name="twitter:title" content="Runtime 的使用(Swizzling 详解)"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@pSXzNqa4EWTxosq"/>
+
+
+    <link rel="icon" href="/images/icon.png" />
+  	<meta property="og:title" content="Runtime 的使用(Swizzling 详解) &middot; Riven&#39;s Blog" />
+  	<meta property="og:site_name" content="Riven&#39;s Blog" />
+  	<meta property="og:url" content="https://chunipo.github.io/runtime-%E7%9A%84%E4%BD%BF%E7%94%A8swizzling-%E8%AF%A6%E8%A7%A3/" />
+
+    
+       <meta property="og:image" content="/content/images/me/5.jpg"/>
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2018-05-21T22:19:00&#43;02:00" />
+
+    
+    
+
+    <title>Runtime 的使用(Swizzling 详解) &middot; Riven&#39;s Blog</title>
+
+    
+    <meta name="description" content="&lt;blockquote&gt;
+&lt;p&gt;Hope in action is a love, a good in action is good.&lt;/p&gt;" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="Riven&#39;s Blog" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.40.3" />
+
+    <link rel="canonical" href="https://chunipo.github.io/runtime-%E7%9A%84%E4%BD%BF%E7%94%A8swizzling-%E8%AF%A6%E8%A7%A3/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": https://chunipo.github.io/images/logo.png
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": https://chunipo.github.io/images/logo.png,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": https://chunipo.github.io/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ],
+        "description": IT software and Security Engineer, Open source enthusiast.
+        
+    },
+    "headline": Runtime 的使用(Swizzling 详解),
+    "name": Runtime 的使用(Swizzling 详解),
+    "wordCount": 736,
+    "timeRequired": "PT4M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": https://chunipo.github.io/runtime-%E7%9A%84%E4%BD%BF%E7%94%A8swizzling-%E8%AF%A6%E8%A7%A3/,
+    "datePublished": 2018-05-21T22:19Z,
+    "dateModified": 2018-05-21T22:19Z,
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": https://chunipo.github.io//content/images/me/5.jpg,
+        "width": 3000,
+        "height": 1445
+    },
+    
+    
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": https://chunipo.github.io/runtime-%E7%9A%84%E4%BD%BF%E7%94%A8swizzling-%E8%AF%A6%E8%A7%A3/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-79101-12', 'auto');
+      ga('send', 'pageview');
+
+    </script>
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+        
+            <h3>Topics</h3>
+            <li class="nav-opened" role="presentation">
+            	<a href="/security/">Securité</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/pgp/">PGP Pub Key</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/about/">About me</a>
+            </li>
+        
+            <h3>Tools</h3>
+            <li class="nav-opened" role="presentation">
+            	<a href="https://alpha.wallhaven.cc/">图片搜索网站</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://www.bijint.com">YouTube</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="http://iconfont.cn/home/index">阿里巴巴矢量图标库</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="https://developer.apple.com/library/content/navigation/">iOS Guides and Sample Code</a>
+            </li>
+        
+            <h3>Links</h3>
+            <li class="nav-opened" role="presentation">
+            	<a href="https://ennisk.github.io/">ennisk&#39;s Blog</a>
+            </li>
+        
+            
+            <li class="nav-opened" role="presentation">
+            	<a href="/">Blog</a>
+            </li>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+  
+  <header class="main-header post-head" style="background-image: url(/content/images/me/5.jpg)">
+  
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="https://chunipo.github.io/"><img src="/images/logo.png" alt="Home" /></a>
+  
+  
+      <a class="menu-button" href="#"><span class="burger">&#9776;</span><span class="word">Menu</span></a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Runtime 的使用(Swizzling 详解)</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2018-05-21T22:19:00&#43;02:00">
+            May 21, 2018
+          </time>
+        
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <blockquote>
+<p>Hope in action is a love, a good in action is good.</p>
+
+<p>Runtime 是 iOS 中比较难以理解, 但又非常强大的技术.所谓运行时, 就是尽可能地把决定从编译器推迟到运行期, 就是尽可能地做到动态. 只是在运行的时候才会去确定对象的类型和方法的. 因此利用 Runtime 机制可以在程序运行时动态地修改类和对象中的所有属性和方法.
+Objective-C 中调用对象的方法时, 会向该对象发送一条消息, Runtime 根据该消息做出反应.
+Runtime 是一套比较底层的纯C语言的 API, Objective-C 是运行在 Runtime 上的, 因此在 Runtime 中动态添加和实现一些非常强大的功能也就不足为奇了.比如：hook。
+不知道何时开始 iOS 面试开始流行起来询问什么是 Runtime，于是 iOSer 一听 Runtime 总是就提起 MethodSwizzling，开口闭口就是黑科技。但其实如果读者留意过 C 语言的 Hook 原理其实会发现所谓的钩子都是框架或者语言的设计者预留给我们的工具，而不是什么黑科技，MethodSwizzling 其实只是一个简单而有趣的机制罢了。然而就是这样的机制，在日常中却总能成为万能药一般的被肆无忌惮的使用。</p>
+</blockquote>
+
+<h2 id="method-swizzling">Method swizzling</h2>
+
+<p>hook 里最常用的就是 Method swizzling，Method swizzling 用于改变一个已经存在的 selector 的实现。这项技术使得在运行时通过改变 selector 在类的消息分发列表中的映射从而改变方法的掉用成为可能。</p>
+
+<p>例如：我们想要在一款 iOS app 中追踪每一个视图控制器被用户呈现了几次： 这可以通过在每个视图控制器的 viewDidAppear: 方法中添加追踪代码来实现，但这样会大量重复的样板代码。继承是另一种可行的方式，但是这要求所有被继承的视图控制器如 UIViewController, UITableViewController, UINavigationController 都在 viewDidAppear：实现追踪代码，这同样会造成很多重复代码。 幸运的是，这里有另外一种可行的方式：从 category 实现 method swizzling 。下面是实现方式：
+在Objective-C代码中使用Runtime, 需要引入:
+<code>#import &lt;objc/runtime.h&gt;</code></p>
+
+<pre><code>#import &lt;objc/runtime.h&gt;
+
+@implementation UIViewController (Tracking)
+
++ (void)load {
+static dispatch_once_t onceToken;
+dispatch_once(&amp;onceToken, ^{
+Class class = [self class];
+
+SEL originalSelector = @selector(viewWillAppear:);
+SEL swizzledSelector = @selector(xxx_viewWillAppear:);
+
+Method originalMethod = class_getInstanceMethod(class, originalSelector);
+Method swizzledMethod = class_getInstanceMethod(class, swizzledSelector);
+
+// When swizzling a class method, use the following:
+// Class class = object_getClass((id)self);
+// ...
+// Method originalMethod = class_getClassMethod(class, originalSelector);
+// Method swizzledMethod = class_getClassMethod(class, swizzledSelector);
+
+BOOL didAddMethod =
+class_addMethod(class,
+originalSelector,
+method_getImplementation(swizzledMethod),
+method_getTypeEncoding(swizzledMethod));
+
+if (didAddMethod) {
+class_replaceMethod(class,
+swizzledSelector,
+method_getImplementation(originalMethod),
+method_getTypeEncoding(originalMethod));
+} else {
+method_exchangeImplementations(originalMethod, swizzledMethod);
+}
+});
+}
+
+#pragma mark - Method Swizzling
+
+- (void)xxx_viewWillAppear:(BOOL)animated {
+[self xxx_viewWillAppear:animated];
+NSLog(@&quot;viewWillAppear: %@&quot;, self);
+}
+
+@end
+
+</code></pre>
+
+<p>现在，UIViewController 或其子类的实例对象在调用 viewWillAppear: 的时候会有 log 的输出。</p>
+
+<p>在视图控制器的生命周期，响应事件，绘制视图或者 Foundation 框架的网络栈等方法中插入代码都是 method swizzling 能够为开发带来很好作用的例子。有很多的场景选择method swizzling 会是很合适的解决方式，这显然也会让 Objective-C 开发者的技术变得越来越成熟。</p>
+
+<p>到此我们已经知道为什么，应该在哪些地方使用 method swizzling，下面介绍如何使用 method swizzling：</p>
+
+<h2 id="load-or-initialize">load Or initialize ?</h2>
+
+<p><strong>swizzling应该只在+load中完成</strong>。
+在 Objective-C 的运行时中，每个类有两个方法都会自动调用。+load 是在一个类被初始装载时调用，+initialize 是在应用第一次调用该类的类方法或实例方法前调用的。两个方法都是可选的，并且只有在方法被实现的情况下才会被调用。</p>
+
+<h2 id="dispatch-once">dispatch_once</h2>
+
+<p><strong>swizzling 应该只在 dispatch_once 中完成</strong>
+由于 swizzling 改变了全局的状态，所以我们需要确保每个预防措施在运行时都是可用的。原子操作就是这样一个用于确保代码只会被执行一次的预防措施，就算是在不同的线程中也能确保代码只执行一次。Grand Central Dispatch 的 dispatch_once 满足了所需要的需求，并且应该被当做使用 swizzling 的初始化单例方法的标准。
+##Selectors, Methods, &amp; Implementations
+在 Objective-C 的运行时中，selectors, methods, implementations 指代了不同概念，然而我们通常会说在消息发送过程中，这三个概念是可以相互转换的。 下面是苹果 <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Reference/ObjCRuntimeRef/Reference/reference.html#//apple_ref/c/func/method_getImplementation">Objective-C Runtime Reference</a>中的描述：
+&gt;* <strong>Selector</strong>（typedef struct objc_selector <em>SEL）:在运行时 Selectors 用来代表一个方法的名字。Selector 是一个在运行时被注册（或映射）的C类型字符串。Selector由编译器产生并且在当类被加载进内存时由运行时自动进行名字和实现的映射。
+&gt;</em> <strong>Method</strong>（typedef struct objc_method <em>Method）:方法是一个不透明的用来代表一个方法的定义的类型。
+&gt;</em> <strong>Implementation</strong>（typedef id (*IMP)(id, SEL,&hellip;)）:这个数据类型指向一个方法的实现的最开始的地方。该方法为当前CPU架构使用标准的C方法调用来实现。该方法的第一个参数指向调用方法的自身（即内存中类的实例对象，若是调用类方法，该指针则是指向元类对象metaclass）。第二个参数是这个方法的名字selector，该方法的真正参数紧随其后。</p>
+
+<p>理解 <strong>selector</strong>, <strong>method</strong>, <strong>implementation</strong> 这三个概念之间关系的最好方式是：在运行时，类（Class）维护了一个消息分发列表来解决消息的正确发送。每一个消息列表的入口是一个方法（Method），这个方法映射了一对键值对，其中键值是这个方法的名字 selector（SEL），值是指向这个方法实现的函数指针 implementation（IMP）。 Method swizzling 修改了类的消息分发列表使得已经存在的 selector 映射了另一个实现 implementation，同时重命名了原生方法的实现为一个新的 selector。</p>
+
+<h2 id="调用-cmd">调用 _cmd</h2>
+
+<p>下面代码在正常情况下会出现循环：</p>
+
+<pre><code>- (void)xxx_viewWillAppear:(BOOL)animated { 
+[self xxx_viewWillAppear:animated];
+NSLog(@&quot;viewWillAppear: %@&quot;, NSStringFromClass([self class]));
+} 
+</code></pre>
+
+<p>然而在交换了方法实现后就不会出现循环了。好的程序员应该对这里出现的方法的递归调用有所警觉，这里我们应该理清在 method swizzling 后方法的实现究竟变成了什么。在交换了方法的实现后，<code>xxx_viewWillAppear:</code>方法的实现已经被替换为了 <code>UIViewController -viewWillAppear：</code>的原生实现，所以这里并不是在递归调用。由于 <code>xxx_viewWillAppear:</code>这个方法的实现已经被替换为了 <code>viewWillAppear:</code> 的实现，所以，当我们在这个方法中再调用<code>viewWillAppear:</code> 时便会造成递归循环。</p>
+
+<blockquote>
+<p>记住给需要转换的所有方法加个前缀以区别原生方法。</p>
+</blockquote>
+
+<hr />
+
+<h4 id="另外runtime还有很多我们可以用到的地方-下面举两个例子给大家">另外runtime还有很多我们可以用到的地方，下面举两个例子给大家。</h4>
+
+<h5 id="1-防止按钮重复点击">1. 防止按钮重复点击</h5>
+
+<p>新建UIButton的分类,.h文件为：</p>
+
+<pre><code>#import &lt;UIKit/UIKit.h&gt;
+#define defaultInterval .3  //默认时间间隔
+@interface UIButton (Limit)
+/**设置点击时间间隔*/
+@property (nonatomic, assign) NSTimeInterval timeInterval;
+/**
+*  用于设置单个按钮不需要被hook
+*/
+@property (nonatomic, assign) BOOL isIgnore;
+@end
+
+</code></pre>
+
+<p>.m文件</p>
+
+<pre><code>
+#import &quot;UIButton+Limit.h&quot;
+#import &lt;objc/runtime.h&gt;
+@interface UIButton()
+/**bool 类型 YES 不允许点击   NO 允许点击   设置是否执行点UI方法*/
+@property (nonatomic, assign) BOOL isIgnoreEvent;
+@end
+@implementation UIButton (Limit)
++ (void)load{
+static dispatch_once_t onceToken;
+dispatch_once(&amp;onceToken, ^{
+SEL selA = @selector(sendAction:to:forEvent:);
+SEL selB = @selector(mySendAction:to:forEvent:);
+Method methodA =   class_getInstanceMethod(self,selA);
+Method methodB = class_getInstanceMethod(self, selB);
+//将 methodB的实现 添加到系统方法中 也就是说 将 methodA方法指针添加成 方法methodB的  返回值表示是否添加成功
+BOOL isAdd = class_addMethod(self, selA, method_getImplementation(methodB), method_getTypeEncoding(methodB));
+//添加成功了 说明 本类中不存在methodB 所以此时必须将方法b的实现指针换成方法A的，否则 b方法将没有实现。
+if (isAdd) {
+class_replaceMethod(self, selB, method_getImplementation(methodA), method_getTypeEncoding(methodA));
+}else{
+//添加失败了 说明本类中 有methodB的实现，此时只需要将 methodA和methodB的IMP互换一下即可。
+method_exchangeImplementations(methodA, methodB);
+}
+});
+}
+- (NSTimeInterval)timeInterval{
+return [objc_getAssociatedObject(self, _cmd) doubleValue];
+}
+- (void)setTimeInterval:(NSTimeInterval)timeInterval{
+objc_setAssociatedObject(self, @selector(timeInterval), @(timeInterval), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+
+}
+//当我们按钮点击事件 sendAction 时  将会执行  mySendAction
+- (void)mySendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event{
+if (self.isIgnore) {
+//不需要被hook
+[self mySendAction:action to:target forEvent:event];
+return;
+}
+NSArray *buttonArray = @[@&quot;UIButton&quot;,@&quot;CustomButton&quot;];
+if ([buttonArray containsObject:NSStringFromClass(self.class)] ) {
+self.timeInterval =self.timeInterval == 0 ?defaultInterval:self.timeInterval;
+if (self.isIgnoreEvent){
+return;
+}else if (self.timeInterval &gt; 0){
+[self performSelector:@selector(resetState) withObject:nil afterDelay:self.timeInterval];
+}
+}
+//此处 methodA和methodB方法IMP互换了，实际上执行 sendAction；所以不会死循环
+self.isIgnoreEvent = YES;
+[self mySendAction:action to:target forEvent:event];
+}
+//runtime 动态绑定 属性
+- (void)setIsIgnoreEvent:(BOOL)isIgnoreEvent{
+// 注意BOOL类型 需要用OBJC_ASSOCIATION_RETAIN_NONATOMIC 不要用错，否则set方法会赋值出错
+objc_setAssociatedObject(self, @selector(isIgnoreEvent), @(isIgnoreEvent), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (BOOL)isIgnoreEvent{
+//_cmd == @select(isIgnore); 和set方法里一致
+return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+- (void)setIsIgnore:(BOOL)isIgnore{
+// 注意BOOL类型 需要用OBJC_ASSOCIATION_RETAIN_NONATOMIC 不要用错，否则set方法会赋值出错
+objc_setAssociatedObject(self, @selector(isIgnore), @(isIgnore), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+- (BOOL)isIgnore{
+//_cmd == @select(isIgnore); 和set方法里一致
+return [objc_getAssociatedObject(self, _cmd) boolValue];
+}
+- (void)resetState{
+[self setIsIgnoreEvent:NO];
+}
+
+@end
+
+</code></pre>
+
+<p>宏定义的<code>defaultInterval</code>为限制按钮间隔多长时间点击一次。</p>
+
+<h5 id="2-防止数组越界造成奔溃">2.防止数组越界造成奔溃</h5>
+
+<blockquote>
+<p>需求</p>
+</blockquote>
+
+<p>在实际工程中，可能在一些地方（比如取出网络响应数据）进行了数组NSArray取数据的操作，而且以前的小哥们也没有进行防越界处理。测试方一不小心也没有测出数组越界情况下奔溃（因为返回的数据是动态的），结果以为没有问题了，其实还隐藏的生产事故的风险。
+这时APP负责人说了，即使APP即使不能工作也不能Crash，这是最低的底线。那么这对数组越界的情况下的奔溃，你有没有办法拦截？
+思路：对NSArray的objectAtIndex:方法进行Swizzling，替换一个有处理逻辑的方法。但是，这时候还是有个问题，就是类簇的Swizzling没有那么简单。</p>
+
+<blockquote>
+<p>类簇</p>
+</blockquote>
+
+<p>在iOS中NSNumber、NSArray、NSDictionary等这些类都是类簇(Class Clusters)，一个NSArray的实现可能由多个类组成。所以如果想对NSArray进行Swizzling，必须获取到其<strong>“真身”</strong>进行Swizzling，直接对NSArray进行操作是无效的。这是因为Method Swizzling对NSArray这些的类簇是不起作用的。
+因为这些类簇类，其实是一种抽象工厂的设计模式。抽象工厂内部有很多其它继承自当前类的子类，抽象工厂类会根据不同情况，创建不同的抽象对象来进行使用。例如我们调用NSArray的objectAtIndex:方法，这个类会在方法内部判断，内部创建不同抽象类进行操作。
+所以如果我们对NSArray类进行Swizzling操作其实只是对父类进行了操作，在NSArray内部会创建其他子类来执行操作，真正执行Swizzling操作的并不是NSArray自身，所以我们应该对其“真身”进行操作。
+下面列举了NSArray和NSDictionary本类的类名，可以通过Runtime函数取出本类：
+&gt;类名:             NSArray &mdash;&mdash;&ndash;NSMutableArray&mdash;&ndash; NSDictionary&mdash;&mdash;&ndash;NSMutableDictionary
+真身: __NSArrayI &mdash; __NSArrayM&mdash;&mdash;&mdash;- __NSDictionaryI&mdash;-  __NSDictionaryM</p>
+
+<p>##实践
+创建NSArrary的分类：</p>
+
+<pre><code>#import &quot;NSArray+Limit.h&quot;
+#import &lt;objc/runtime.h&gt;
+
+
+
+/** 数组                真身
+NSArray               __NSArrayI
+
+
+
+NSMutableArray        __NSArrayM
+
+
+
+NSDictionary          __NSDictionaryI
+
+
+
+NSMutableDictionary   __NSDictionaryM
+
+*/
+
+
+
+@implementation NSArray (Limit)
++ (void)load {
+//[super load];
+//可变数组方法调换
+Method fromMethod = class_getInstanceMethod(objc_getClass(&quot;__NSArrayM&quot;), @selector(objectAtIndexedSubscript:));
+Method toMethod = class_getInstanceMethod(objc_getClass(&quot;__NSArrayM&quot;), @selector(cm_objectAtIndexedSubscript:));
+method_exchangeImplementations(fromMethod, toMethod);
+//不可变数组方法调换
+Method a = class_getInstanceMethod(objc_getClass(&quot;__NSArrayI&quot;), @selector(objectAtIndex:));
+Method b = class_getInstanceMethod(objc_getClass(&quot;__NSArrayI&quot;), @selector(cm_objectAtIndex:));
+method_exchangeImplementations(a, b);
+}
+
+- (id)cm_objectAtIndexedSubscript:(NSUInteger)index {
+// 判断下标是否越界，如果越界就进入异常拦截
+if (self.count-1 &lt; index) {
+@try {
+return nil;
+}
+@catch (NSException *exception) {
+// 在崩溃后会打印崩溃信息
+NSLog(@&quot;---------- %s 奔溃信息 Method   ----------\n&quot;, class_getName(self.class));
+NSLog(@&quot;%@&quot;, [exception callStackSymbols]);
+return nil;
+}
+@finally {}
+} // 如果没有问题，则正常进行方法调用
+else {
+return [self cm_objectAtIndexedSubscript:index];
+}
+}
+
+- (id)cm_objectAtIndex:(NSUInteger)index {
+// 判断下标是否越界，如果越界就进入异常拦截
+if (self.count-1 &lt; index) {
+@try {
+return nil;
+}
+@catch (NSException *exception) {
+// 在崩溃后会打印崩溃信息
+NSLog(@&quot;---------- %s 奔溃信息 Method  ----------\n&quot;, class_getName(self.class));
+NSLog(@&quot;%@&quot;, [exception callStackSymbols]);
+return nil;
+}
+@finally {}
+} // 如果没有问题，则正常进行方法调用
+else {
+return [self cm_objectAtIndex:index];
+}
+}
+
+@end
+
+</code></pre>
+
+<p>到此，如果数组越界，则返回的则是nil，系统就不会奔溃了。</p>
+
+<hr />
+
+<p>###最后需要注意的地方
+很多人认为交换方法实现会带来无法预料的结果。然而采取了以下预防措施后, method swizzling 会变得很可靠：</p>
+
+<p><strong>1.在交换方法实现后记得要调用原生方法的实现（除非你非常确定可以不用调用原生方法的实现）</strong></p>
+
+<p>APIs 提供了输入输出的规则，而在输入输出中间的方法实现就是一个看不见的黑盒。交换了方法实现并且一些回调方法不会调用原生方法的实现这可能会造成底层实现的崩溃。</p>
+
+<p><strong>2.避免冲突</strong></p>
+
+<p>为分类的方法加前缀，一定要确保调用了原生方法的所有地方不会因为你交换了方法的实现而出现意想不到的结果。</p>
+
+<p><strong>3.理解实现原理</strong></p>
+
+<p>只是简单的拷贝粘贴交换方法实现的代码而不去理解实现原理不仅会让 App 很脆弱，并且浪费了学习 Objective-C 运行时的机会。阅读 Objective-C Runtime Reference 并且浏览 能够让你更好理解实现原理。</p>
+
+<p><strong>4.持续的预防</strong></p>
+
+<p>不管你对你理解 swlzzling 框架，UIKit 或者其他内嵌框架有多自信，一定要记住所有东西在下一个发行版本都可能变得不再好使。做好准备，在使用这个黑魔法中走得更远，不要让程序反而出现不可思议的行为。</p>
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+
+
+
+
+
+
+
+
+<figure class="author-image">
+    <a class="img" href="https://chunipo.github.io/" style="background-image: url(/images/logo.png)"><span class="hidden">Riven's Picture</span></a>
+</figure>
+
+
+<section class="author">
+  <h4><a href="https://chunipo.github.io/">Riven</a></h4>
+  
+  <p>IT software and Security Engineer, Open source enthusiast.</p>
+  
+  <div class="author-meta">
+    <span class="author-location icon-location">GuangZhou, China</span>
+    <span class="author-link icon-link"><a href="https://chunipo.github.io/">https://chunipo.github.io/</a></span>
+  </div>
+</section>
+
+
+
+
+    
+
+
+    
+
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+  
+      <a class="read-next-story prev" style="background-image: url(/content/images/me/8.jpg)" href="/ios-app-%E5%86%85%E8%B7%B3%E8%BD%AC%E5%88%B0%E6%89%8B%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE/">
+          <section class="post">
+              <h2>iOS app 内跳转到手机系统相关设置</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">Riven&#39;s Blog</a> 我们真正迷恋的不是某个东西，而是那个东西所代表的意义和感受，它承载了回忆和联想</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+<script>
+  if (window.netlifyIdentity) {
+    window.netlifyIdentity.on("init", user => {
+      if (!user) {
+        window.netlifyIdentity.on("login", () => {
+          document.location.href = "/admin/";
+        });
+      }
+    });
+  }
+</script>
+    
+</body>
+</html>
+
